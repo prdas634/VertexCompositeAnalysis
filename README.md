@@ -17,4 +17,4 @@ scram b -j8
 cd VertexCompositeProducer/test
 
 ## V0 reconstruction inside jets in pp using MINIAOD
-cmsRun ppRun2UL_V0Both_MiniAOD_cfg.py 
+cmsRun ppRun2UL_V0Both_MiniAOD_cfg_testPD.py
