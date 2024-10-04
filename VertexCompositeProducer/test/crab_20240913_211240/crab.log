@@ -1,0 +1,144 @@
+DEBUG 2024-09-13 19:12:40.244 UTC: 	 CRAB Client version: v3.240621
+DEBUG 2024-09-13 19:12:40.245 UTC: 	 Running on: Linux lxplus9103.cern.ch 5.14.0-427.33.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Aug 16 10:56:24 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2024-09-13 19:12:40.245 UTC: 	 Executing command: 'submit'
+DEBUG 2024-09-13 19:12:40.246 UTC: 	 Found CRAB cache file /afs/cern.ch/user/p/prdas/.crab3
+INFO 2024-09-13 19:12:40.270 UTC: 	 Will use CRAB configuration file crab_testPD.py
+DEBUG 2024-09-13 19:12:40.270 UTC: 	 Loading CRAB configuration file.
+DEBUG 2024-09-13 19:12:40.300 UTC: 	 Will use CRAB plugin ANALYSIS (i.e. will run an analysis job type).
+DEBUG 2024-09-13 19:12:40.367 UTC: 	 Checking credentials
+DEBUG 2024-09-13 19:12:40.368 UTC: 	 Found proxy file /tmp/x509up_u119868
+DEBUG 2024-09-13 19:12:40.368 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2024-09-13 19:12:40.368 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u119868
+DEBUG 2024-09-13 19:12:40.420 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-13 19:12:40.420 UTC: 	 Getting proxy life time left
+DEBUG 2024-09-13 19:12:40.420 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u119868
+DEBUG 2024-09-13 19:12:40.446 UTC: 	 output : 36000
+36000
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-13 19:12:40.446 UTC: 	 Proxy valid for 10:00:00 hours
+DEBUG 2024-09-13 19:12:40.446 UTC: 	 Encoded data for curl request: subresource=delegatedn
+DEBUG 2024-09-13 19:12:40.500 UTC: 	 Registering user credentials on myproxy for /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+DEBUG 2024-09-13 19:12:40.500 UTC: 	 Executing command :
+ voms-proxy-info --identity --file /tmp/x509up_u119868
+DEBUG 2024-09-13 19:12:40.526 UTC: 	 output : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=prdas/CN=835103/CN=Prottoy Das
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-13 19:12:40.526 UTC: 	 Getting myproxy life time left for 4a0c9e2cb1796678c8a49342c476dc4c28860916
+DEBUG 2024-09-13 19:12:40.526 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l 4a0c9e2cb1796678c8a49342c476dc4c28860916
+DEBUG 2024-09-13 19:12:40.857 UTC: 	 output : 
+ error: ERROR from myproxy-server:
+no credentials found for user 4a0c9e2cb1796678c8a49342c476dc4c28860916, owner "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=prdas/CN=835103/CN=Prottoy Das" 
+
+ retcode : 1
+ERROR 2024-09-13 19:12:40.857 UTC: 	 
+ERROR from myproxy-server:
+no credentials found for user 4a0c9e2cb1796678c8a49342c476dc4c28860916, owner "/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=prdas/CN=835103/CN=Prottoy Das" 
+
+DEBUG 2024-09-13 19:12:40.857 UTC: 	 Myproxy is valid: 0
+DEBUG 2024-09-13 19:12:40.857 UTC: 	 Executing command :
+ openssl x509 -noout -dates -in ~/.globus/usercert.pem
+DEBUG 2024-09-13 19:12:40.925 UTC: 	 output : notBefore=Sep  3 21:51:08 2024 GMT
+notAfter=Oct  8 21:51:08 2025 GMT
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-13 19:12:40.930 UTC: 	 Delegating a myproxy for 720:00 hours
+DEBUG 2024-09-13 19:12:40.930 UTC: 	 Executing command :
+ export GT_PROXY_MODE=rfc ; myproxy-init -d -n -s myproxy.cern.ch -C ~/.globus/usercert.pem -y ~/.globus/userkey.pem -x -R '/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1' -x -Z '/DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1' -l 4a0c9e2cb1796678c8a49342c476dc4c28860916 -t 168 -c 720:00
+DEBUG 2024-09-13 19:12:49.186 UTC: 	 output : Your identity: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=prdas/CN=835103/CN=Prottoy Das
+Creating proxy ..................................................................................................... Done
+Proxy Verify OK
+Your proxy is valid until: Sun Oct 13 21:12:48 2024
+A proxy valid for 720 hours (30.0 days) for user 4a0c9e2cb1796678c8a49342c476dc4c28860916 now exists on myproxy.cern.ch.
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-13 19:12:49.187 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l 4a0c9e2cb1796678c8a49342c476dc4c28860916
+DEBUG 2024-09-13 19:12:49.508 UTC: 	 output : username: 4a0c9e2cb1796678c8a49342c476dc4c28860916
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=prdas/CN=835103/CN=Prottoy Das
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  timeleft: 719:59:59  (30.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2024-09-13 19:12:49.508 UTC: 	 My-proxy delegated.
+DEBUG 2024-09-13 19:12:49.508 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: 4a0c9e2cb1796678c8a49342c476dc4c28860916  - validity: 29 days, 23:59:00
+DEBUG 2024-09-13 19:12:49.508 UTC: 	 Command use: submit
+DEBUG 2024-09-13 19:12:49.508 UTC: 	 Options use: ['-c', 'crab_testPD.py']
+DEBUG 2024-09-13 19:12:49.509 UTC: 	 Encoded data for curl request: subresource=version
+DEBUG 2024-09-13 19:12:49.552 UTC: 	 CRABClient version: v3.240621
+DEBUG 2024-09-13 19:12:49.552 UTC: 	 Instance is prod
+DEBUG 2024-09-13 19:12:49.552 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2024-09-13 19:12:49.552 UTC: 	 Command api workflow
+DEBUG 2024-09-13 19:12:49.552 UTC: 	 Started submission
+DEBUG 2024-09-13 19:12:49.553 UTC: 	 Working on /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20240913_211240
+DEBUG 2024-09-13 19:12:49.553 UTC: 	 Encoded data for curl request: subresource=backendurls
+DEBUG 2024-09-13 19:12:49.799 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-13 19:12:49.799 UTC: 	 Found CMSSW_10_6_4_patch1 for slc7_amd64_gcc700 with base /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1
+DEBUG 2024-09-13 19:12:49.799 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-13 19:12:49.799 UTC: 	 Found CMSSW_10_6_4_patch1 for slc7_amd64_gcc700 with base /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1
+DEBUG 2024-09-13 19:12:49.799 UTC: 	 UNIQUE NAME: tarUUID ec17fe00-1e31-4238-af14-1d800c63976c 
+DEBUG 2024-09-13 19:12:49.799 UTC: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.section_('JobType')
+config.JobType.psetName = 'ppRun2UL_V0Both_MiniAOD_cfg_testPD.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.outputFiles = ['v0ana_wJet_test.root']
+config.JobType.allowUndistributedCMSSW = True
+config.section_('Data')
+config.Data.inputDataset = '/JetHT/Run2018D-UL2018 MiniAODv2-v2/MINIAOD'
+config.Data.publication = False
+config.Data.splitting = 'Automatic'
+config.Data.inputDBS = 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader'
+config.Data.outLFNDirBase = '/store/group/phys_heavyions/prdas/Run2_v0_wjet_trees/'
+config.Data.lumiMask = 'afs/cern.ch/work/p/prdas/private/V0Reco/Cert_314472-325175_13TeV_Legacy2018_Collisions18_JSON.txt'
+config.section_('User')
+config.section_('Site')
+config.Site.storageSite = 'T2_CH_CERN'
+
+DEBUG 2024-09-13 19:12:49.799 UTC: 	 self.config.JobType.psetName: ppRun2UL_V0Both_MiniAOD_cfg_testPD.py
+INFO 2024-09-13 19:12:49.799 UTC: 	 Importing CMSSW configuration ppRun2UL_V0Both_MiniAOD_cfg_testPD.py
+INFO 2024-09-13 19:12:55.950 UTC: 	 Finished importing CMSSW configuration ppRun2UL_V0Both_MiniAOD_cfg_testPD.py
+DEBUG 2024-09-13 19:12:55.950 UTC: 	 Writing CMSSW configuration to /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20240913_211240/inputs/PSet.py
+DEBUG 2024-09-13 19:12:57.864 UTC: 	 The following EDM output files will be collected: []
+DEBUG 2024-09-13 19:12:57.864 UTC: 	 The following TFile output files will be collected: ['v0ana_wJet_test.root']
+DEBUG 2024-09-13 19:12:57.864 UTC: 	 The following user output files (not listed as PoolOuputModule or TFileService in the CMSSW PSet) will be collected: 
+DEBUG 2024-09-13 19:12:57.864 UTC: 	 Loading required information from the environment
+DEBUG 2024-09-13 19:12:57.864 UTC: 	 Found CMSSW_10_6_4_patch1 for slc7_amd64_gcc700 with base /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1
+DEBUG 2024-09-13 19:12:57.864 UTC: 	 Making tarball in /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20240913_211240/inputs/ec17fe00-1e31-4238-af14-1d800c63976cdefault.tgz
+DEBUG 2024-09-13 19:12:57.865 UTC: 	 Checking directory /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/bin
+DEBUG 2024-09-13 19:12:57.865 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/bin to tarball
+DEBUG 2024-09-13 19:12:57.867 UTC: 	 Checking directory /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/python
+DEBUG 2024-09-13 19:12:57.867 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/python to tarball
+ERROR 2024-09-13 19:12:58.093 UTC: 	 Error: Infinite directory loop found in: /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/python 
+Stderr: [Errno 2] No such file or directory: '/afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/python/HeavyIonsAnalysis/TrackAnalysis'
+ERROR 2024-09-13 19:12:58.094 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 152, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 137, in __call__
+    returnDict = self.cmd()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/submit.py", line 107, in __call__
+    dummy_inputfiles, jobconfig = plugjobtype.run(filecacheurl)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/JobType/Analysis.py", line 164, in run
+    tb.addFiles(userFiles=inputFiles, cfgOutputName=cfgOutputName)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/JobType/UserTarball.py", line 145, in addFiles
+    self.checkdirectory(fullPath)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/JobType/UserTarball.py", line 326, in checkdirectory
+    raise EnvironmentException(err)
+EnvironmentException: [91mError[0m: Infinite directory loop found in: /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/python 
+Stderr: [Errno 2] No such file or directory: '/afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/python/HeavyIonsAnalysis/TrackAnalysis'

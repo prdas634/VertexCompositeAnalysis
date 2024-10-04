@@ -1,0 +1,100 @@
+DEBUG 2024-09-13 19:00:56.470 UTC: 	 CRAB Client version: v3.240621
+DEBUG 2024-09-13 19:00:56.470 UTC: 	 Running on: Linux lxplus9103.cern.ch 5.14.0-427.33.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Aug 16 10:56:24 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2024-09-13 19:00:56.470 UTC: 	 Executing command: 'submit'
+DEBUG 2024-09-13 19:00:56.475 UTC: 	 Could not find CRAB cache file /afs/cern.ch/user/p/prdas/.crab3; creating a new one.
+INFO 2024-09-13 19:00:56.482 UTC: 	 Will use CRAB configuration file crab_testPD.py
+DEBUG 2024-09-13 19:00:56.482 UTC: 	 Loading CRAB configuration file.
+ERROR 2024-09-13 19:00:56.594 UTC: 	 Invalid CRAB configuration: Parameter JobType.pluginName has an invalid value ('ANASKIM1').
+Allowed values are: PRIVATEMC, COPYCAT, RECOVER, ANALYSIS.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2024-09-13 19:00:56.594 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 152, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/submit.py", line 36, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 325, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 96, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Invalid CRAB configuration: Parameter JobType.pluginName has an invalid value ('ANASKIM1').
+Allowed values are: PRIVATEMC, COPYCAT, RECOVER, ANALYSIS.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+INFO 2024-09-13 19:00:56.597 UTC: 	 Log file is /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab.log
+DEBUG 2024-09-13 19:05:20.966 UTC: 	 CRAB Client version: v3.240621
+DEBUG 2024-09-13 19:05:20.966 UTC: 	 Running on: Linux lxplus9103.cern.ch 5.14.0-427.33.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Aug 16 10:56:24 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2024-09-13 19:05:20.966 UTC: 	 Executing command: 'status'
+DEBUG 2024-09-13 19:05:20.966 UTC: 	 Found CRAB cache file /afs/cern.ch/user/p/prdas/.crab3
+ERROR 2024-09-13 19:05:20.967 UTC: 	 Cannot find .requestcache file in CRAB project directory /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test
+ERROR 2024-09-13 19:05:20.967 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 152, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/status.py", line 48, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 280, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 684, in validateOptions
+    self.loadLocalCache()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 531, in loadLocalCache
+    raise ex
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 525, in loadLocalCache
+    self.cachedinfo, self.logfile = loadCache(self.requestarea, self.logger)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/ClientUtilities.py", line 445, in loadCache
+    raise CachefileNotFoundException(msg)
+CRABClient.ClientExceptions.CachefileNotFoundException: Cannot find .requestcache file in CRAB project directory /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test
+INFO 2024-09-13 19:05:21.095 UTC: 	 Log file is /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab.log
+DEBUG 2024-09-13 19:24:21.071 UTC: 	 CRAB Client version: v3.240621
+DEBUG 2024-09-13 19:24:21.071 UTC: 	 Running on: Linux lxplus9103.cern.ch 5.14.0-427.33.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Aug 16 10:56:24 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2024-09-13 19:24:21.071 UTC: 	 Executing command: 'status'
+DEBUG 2024-09-13 19:24:21.072 UTC: 	 Found CRAB cache file /afs/cern.ch/user/p/prdas/.crab3
+ERROR 2024-09-13 19:24:21.090 UTC: 	 Cannot find .requestcache file in CRAB project directory /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20240913_211240
+ERROR 2024-09-13 19:24:21.090 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 152, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/status.py", line 48, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 280, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 684, in validateOptions
+    self.loadLocalCache()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 531, in loadLocalCache
+    raise ex
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 525, in loadLocalCache
+    self.cachedinfo, self.logfile = loadCache(self.requestarea, self.logger)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/ClientUtilities.py", line 445, in loadCache
+    raise CachefileNotFoundException(msg)
+CRABClient.ClientExceptions.CachefileNotFoundException: Cannot find .requestcache file in CRAB project directory /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20240913_211240
+INFO 2024-09-13 19:24:21.109 UTC: 	 Log file is /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab.log
+DEBUG 2024-09-13 19:24:38.511 UTC: 	 CRAB Client version: v3.240621
+DEBUG 2024-09-13 19:24:38.511 UTC: 	 Running on: Linux lxplus9103.cern.ch 5.14.0-427.33.1.el9_4.x86_64 #1 SMP PREEMPT_DYNAMIC Fri Aug 16 10:56:24 EDT 2024 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2024-09-13 19:24:38.511 UTC: 	 Executing command: 'status'
+DEBUG 2024-09-13 19:24:38.511 UTC: 	 Found CRAB cache file /afs/cern.ch/user/p/prdas/.crab3
+ERROR 2024-09-13 19:24:38.512 UTC: 	 Cannot find .requestcache file in CRAB project directory /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20240913_211240/results
+ERROR 2024-09-13 19:24:38.512 UTC: 	 Caught ClientException exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 152, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/bin/crab.py", line 135, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/status.py", line 48, in __init__
+    SubCommand.__init__(self, logger, cmdargs)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 280, in __init__
+    SubCommand.validateOptions(self)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 684, in validateOptions
+    self.loadLocalCache()
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 531, in loadLocalCache
+    raise ex
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/Commands/SubCommand.py", line 525, in loadLocalCache
+    self.cachedinfo, self.logfile = loadCache(self.requestarea, self.logger)
+  File "/cvmfs/cms.cern.ch/share/cms/crab-prod/v3.240621.01/lib/CRABClient/ClientUtilities.py", line 445, in loadCache
+    raise CachefileNotFoundException(msg)
+CRABClient.ClientExceptions.CachefileNotFoundException: Cannot find .requestcache file in CRAB project directory /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20240913_211240/results
+INFO 2024-09-13 19:24:38.513 UTC: 	 Log file is /afs/cern.ch/work/p/prdas/private/V0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab.log

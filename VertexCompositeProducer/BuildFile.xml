@@ -1,0 +1,13 @@
+<use name="FWCore/Framework"/>
+<use name="PhysicsTools/UtilAlgos"/>
+<use name="VertexCompositeAnalysis/DataFormats"/>
+<use name="DataFormats/HeavyIonEvent"/>
+<use name="RecoVertex/KinematicFit"/>
+<use name="RecoVertex/KinematicFitPrimitives"/>
+<use name="RecoVertex/AdaptiveVertexFit"/>
+<use name="RecoVertex/KalmanVertexFit"/>
+<use name="RecoVertex/GaussianSumVertexFit"/>
+<use name="CommonTools/CandUtils"/>
+<use name="MuonAnalysis/MuonAssociators"/>
+<use name="heppdt"/>
+<flags EDM_PLUGIN="1"/>
