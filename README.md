@@ -6,6 +6,8 @@ cmsrel CMSSW_10_6_4_patch1
 
 cd CMSSW_10_6_4_patch1/src
 
+cmssw-el7
+
 cmsenv
 
 git clone -b master https://github.com/prdas634/VertexCompositeAnalysis.git
@@ -13,6 +15,8 @@ git clone -b master https://github.com/prdas634/VertexCompositeAnalysis.git
 cd VertexCompositeAnalysis
 
 scram b -j8
+
+voms-proxy-init --voms cms
 
 cd VertexCompositeProducer/test
 
