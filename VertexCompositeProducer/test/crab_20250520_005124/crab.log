@@ -1,0 +1,174 @@
+DEBUG 2025-05-19 22:51:24.942 UTC: 	 CRAB Client version: v3.250409
+DEBUG 2025-05-19 22:51:24.943 UTC: 	 Running on: Linux lxplus975.cern.ch 5.14.0-503.38.1.el9_5.x86_64 #1 SMP PREEMPT_DYNAMIC Sun Apr 13 22:01:49 EDT 2025 x86_64 x86_64 x86_64 GNU/Linux
+DEBUG 2025-05-19 22:51:24.943 UTC: 	 Using SINGULARITY image: el7:x86_64
+DEBUG 2025-05-19 22:51:24.943 UTC: 	 Operating System: CentOS Linux 7 (Core)
+DEBUG 2025-05-19 22:51:24.943 UTC: 	 Executing command: 'submit'
+DEBUG 2025-05-19 22:51:24.943 UTC: 	 Found CRAB cache file /afs/cern.ch/user/p/prdas/.crab3
+INFO 2025-05-19 22:51:24.944 UTC: 	 Will use CRAB configuration file crab_MC_testPD_1.py
+DEBUG 2025-05-19 22:51:24.944 UTC: 	 Loading CRAB configuration file.
+DEBUG 2025-05-19 22:51:24.947 UTC: 	 Will use CRAB plugin ANALYSIS (i.e. will run an analysis job type).
+DEBUG 2025-05-19 22:51:24.956 UTC: 	 Checking credentials
+DEBUG 2025-05-19 22:51:24.956 UTC: 	 Found proxy file /tmp/x509up_u119868
+DEBUG 2025-05-19 22:51:24.956 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2025-05-19 22:51:24.956 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /tmp/x509up_u119868
+DEBUG 2025-05-19 22:51:24.996 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2025-05-19 22:51:24.996 UTC: 	 Getting proxy life time left
+DEBUG 2025-05-19 22:51:24.996 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /tmp/x509up_u119868
+DEBUG 2025-05-19 22:51:25.034 UTC: 	 output : 37093
+37093
+
+ error: 
+ retcode : 0
+DEBUG 2025-05-19 22:51:25.034 UTC: 	 Proxy valid for 10:18:13 hours
+DEBUG 2025-05-19 22:51:25.034 UTC: 	 Encoded data for curl request: subresource=delegatedn
+DEBUG 2025-05-19 22:51:25.113 UTC: 	 Registering user credentials on myproxy for /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+DEBUG 2025-05-19 22:51:25.113 UTC: 	 Executing command :
+ voms-proxy-info --identity --file /tmp/x509up_u119868
+DEBUG 2025-05-19 22:51:25.145 UTC: 	 output : /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=prdas/CN=835103/CN=Prottoy Das
+
+ error: 
+ retcode : 0
+DEBUG 2025-05-19 22:51:25.146 UTC: 	 Getting myproxy life time left for 4a0c9e2cb1796678c8a49342c476dc4c28860916
+DEBUG 2025-05-19 22:51:25.146 UTC: 	 Executing command :
+ myproxy-info -s myproxy.cern.ch -l 4a0c9e2cb1796678c8a49342c476dc4c28860916
+DEBUG 2025-05-19 22:51:25.447 UTC: 	 output : username: 4a0c9e2cb1796678c8a49342c476dc4c28860916
+owner: /DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=prdas/CN=835103/CN=Prottoy Das
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod)-tw(01|02).cern.ch|/DC=ch/DC=cern/OU=computers/CN=crab-dev-tw(01|02|03|04).cern.ch|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=cmscrab/CN=(817881|373708)/CN=Robot: cms crab|/DC=ch/DC=cern/OU=Organic Units/OU=Users/CN=crabint1/CN=373708/CN=Robot: CMS CRAB Integration 1
+  timeleft: 719:57:07  (30.0 days)
+
+ error: 
+ retcode : 0
+DEBUG 2025-05-19 22:51:25.447 UTC: 	 Myproxy is valid: 2591820
+DEBUG 2025-05-19 22:51:25.447 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: 4a0c9e2cb1796678c8a49342c476dc4c28860916  - validity: 29 days, 23:57:00
+DEBUG 2025-05-19 22:51:25.447 UTC: 	 Command use: submit
+DEBUG 2025-05-19 22:51:25.447 UTC: 	 Options use: ['crab_MC_testPD_1.py']
+DEBUG 2025-05-19 22:51:25.447 UTC: 	 Encoded data for curl request: subresource=version
+DEBUG 2025-05-19 22:51:25.499 UTC: 	 CRABClient version: v3.250409
+DEBUG 2025-05-19 22:51:25.499 UTC: 	 Instance is prod
+DEBUG 2025-05-19 22:51:25.499 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2025-05-19 22:51:25.499 UTC: 	 Command api workflow
+DEBUG 2025-05-19 22:51:25.500 UTC: 	 Started submission
+DEBUG 2025-05-19 22:51:25.500 UTC: 	 Working on /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124
+DEBUG 2025-05-19 22:51:25.500 UTC: 	 Encoded data for curl request: subresource=backendurls
+DEBUG 2025-05-19 22:51:25.725 UTC: 	 Loading required information from the environment
+DEBUG 2025-05-19 22:51:25.725 UTC: 	 Found CMSSW_10_6_4_patch1 for slc7_amd64_gcc700 with base /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1
+DEBUG 2025-05-19 22:51:25.726 UTC: 	 Loading required information from the environment
+DEBUG 2025-05-19 22:51:25.726 UTC: 	 Found CMSSW_10_6_4_patch1 for slc7_amd64_gcc700 with base /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1
+DEBUG 2025-05-19 22:51:25.726 UTC: 	 UNIQUE NAME: tarUUID bc35528e-54e1-4e60-88ee-5c773445e9f5 
+DEBUG 2025-05-19 22:51:25.726 UTC: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.section_('JobType')
+config.JobType.psetName = 'TestPD_MC_ppRun2UL_MiniAOD.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.outputFiles = ['v0ana_mc_wJet_test.root']
+config.JobType.allowUndistributedCMSSW = True
+config.section_('Data')
+config.Data.inputDataset = '/QCD_Pt_600to800_TuneCP5_13TeV_pythia8/RunIISummer20UL18MiniAODv2-106X_upgrade2018_realistic_v16_L1v1-v1/MINIAODSIM'
+config.Data.publication = False
+config.Data.inputDBS = 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader'
+config.Data.outLFNDirBase = '/store/group/phys_heavyions/prdas/Run2_v1_mc_wjet_trees_testMC/'
+config.Data.splitting = 'Automatic'
+config.section_('User')
+config.section_('Site')
+config.Site.storageSite = 'T2_CH_CERN'
+
+DEBUG 2025-05-19 22:51:25.726 UTC: 	 self.config.JobType.psetName: TestPD_MC_ppRun2UL_MiniAOD.py
+INFO 2025-05-19 22:51:25.726 UTC: 	 Importing CMSSW configuration TestPD_MC_ppRun2UL_MiniAOD.py
+INFO 2025-05-19 22:51:32.494 UTC: 	 Finished importing CMSSW configuration TestPD_MC_ppRun2UL_MiniAOD.py
+DEBUG 2025-05-19 22:51:32.494 UTC: 	 Writing CMSSW configuration to /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/PSet.py
+DEBUG 2025-05-19 22:51:34.466 UTC: 	 The following EDM output files will be collected: []
+DEBUG 2025-05-19 22:51:34.466 UTC: 	 The following TFile output files will be collected: ['v0ana_mc_wJet_testAll.root']
+WARNING 2025-05-19 22:51:34.466 UTC: 	 The following user output files (not listed as PoolOuputModule or TFileService in the CMSSW PSet) will be collected: 'v0ana_mc_wJet_test.root'
+DEBUG 2025-05-19 22:51:34.466 UTC: 	 Loading required information from the environment
+DEBUG 2025-05-19 22:51:34.466 UTC: 	 Found CMSSW_10_6_4_patch1 for slc7_amd64_gcc700 with base /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1
+DEBUG 2025-05-19 22:51:34.466 UTC: 	 Making tarball in /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/bc35528e-54e1-4e60-88ee-5c773445e9f5default.tgz
+DEBUG 2025-05-19 22:51:34.467 UTC: 	 Checking directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/bin
+DEBUG 2025-05-19 22:51:34.467 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/bin to tarball
+DEBUG 2025-05-19 22:51:34.470 UTC: 	 Checking directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/python
+DEBUG 2025-05-19 22:51:34.470 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/python to tarball
+DEBUG 2025-05-19 22:51:34.480 UTC: 	 Checking directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/cfipython
+DEBUG 2025-05-19 22:51:34.480 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/cfipython to tarball
+DEBUG 2025-05-19 22:51:34.483 UTC: 	 Checking directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/lib
+DEBUG 2025-05-19 22:51:34.483 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/lib to tarball
+DEBUG 2025-05-19 22:51:34.658 UTC: 	 Checking directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/biglib
+DEBUG 2025-05-19 22:51:34.658 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/biglib to tarball
+DEBUG 2025-05-19 22:51:34.658 UTC: 	 Checking directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/module
+DEBUG 2025-05-19 22:51:34.659 UTC: 	 Checking directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/config/SCRAM/hooks
+DEBUG 2025-05-19 22:51:34.659 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/config/SCRAM/hooks to tarball
+DEBUG 2025-05-19 22:51:34.662 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/python to tarball
+DEBUG 2025-05-19 22:51:34.676 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/interface to tarball
+DEBUG 2025-05-19 22:51:34.679 UTC: 	 Adding directory /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeAnalyzer/python to tarball
+DEBUG 2025-05-19 22:51:35.478 UTC: 	 Uploading archive /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/bc35528e-54e1-4e60-88ee-5c773445e9f5default.tgz (1.713867.1 MB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2025-05-19 22:51:36.020 UTC: 	 Encoded data for curl request: tarballname=7b33b51d5e4a485daf73dff2c664966a967c49841d28b1b6410e3df1a2d0cbe6.tar.gz&subresource=upload&objecttype=sandbox
+DEBUG 2025-05-19 22:51:36.098 UTC: 	 Will execute:
+curl -f -v -X POST  -H "User-Agent: CRAB" -F "key=prdas/sandboxes/7b33b51d5e4a485daf73dff2c664966a967c49841d28b1b6410e3df1a2d0cbe6.tar.gz" -F "AWSAccessKeyId=715203df6482458ba839e73e6dab634b" -F "policy=eyJleHBpcmF0aW9uIjogIjIwMjUtMDUtMTlUMjM6NTE6MzZaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiY3JhYmNhY2hlX3Byb2QifSwgeyJrZXkiOiAicHJkYXMvc2FuZGJveGVzLzdiMzNiNTFkNWU0YTQ4NWRhZjczZGZmMmM2NjQ5NjZhOTY3YzQ5ODQxZDI4YjFiNjQxMGUzZGYxYTJkMGNiZTYudGFyLmd6In1dfQ==" -F "signature=UHwoAy7iSgMRIrUtiJ5lrp4Bod0=" -F "file=@/afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/bc35528e-54e1-4e60-88ee-5c773445e9f5default.tgz" "https://s3.cern.ch/crabcache_prod"
+DEBUG 2025-05-19 22:51:37.177 UTC: 	 exitcode: 0
+stdout: 
+DEBUG 2025-05-19 22:51:37.177 UTC: 	 upload to S3 of sandbox /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/bc35528e-54e1-4e60-88ee-5c773445e9f5default.tgz completed
+DEBUG 2025-05-19 22:51:37.177 UTC: 	 make sure that object is ready for retrieve
+DEBUG 2025-05-19 22:51:38.178 UTC: 	 Encoded data for curl request: tarballname=7b33b51d5e4a485daf73dff2c664966a967c49841d28b1b6410e3df1a2d0cbe6.tar.gz&subresource=download&clientmethod=head_object&objecttype=sandbox
+DEBUG 2025-05-19 22:51:38.235 UTC: 	 PreSignedUrl to download sandbox received OK
+DEBUG 2025-05-19 22:51:38.242 UTC: 	 Will execute:
+ curl -v -s -f -o /dev/null --head  "https://s3.cern.ch/crabcache_prod/prdas/sandboxes/7b33b51d5e4a485daf73dff2c664966a967c49841d28b1b6410e3df1a2d0cbe6.tar.gz?AWSAccessKeyId=715203df6482458ba839e73e6dab634b&Signature=AXeVnrD38pcgRP6JlhnbNfo74nA%3D&Expires=1747698698"
+DEBUG 2025-05-19 22:51:38.279 UTC: 	 exitcode: 0
+stdout: 
+DEBUG 2025-05-19 22:51:38.279 UTC: 	 sandbox /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/bc35528e-54e1-4e60-88ee-5c773445e9f5default.tgz successfully uploaded to S3
+DEBUG 2025-05-19 22:51:38.279 UTC: 	 Loading required information from the environment
+DEBUG 2025-05-19 22:51:38.279 UTC: 	 Found CMSSW_10_6_4_patch1 for slc7_amd64_gcc700 with base /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1
+DEBUG 2025-05-19 22:51:38.279 UTC: 	 Making tarball in /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/debugFiles.tgz
+DEBUG 2025-05-19 22:51:38.283 UTC: 	 Uploading archive /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/debugFiles.tgz (2 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2025-05-19 22:51:38.285 UTC: 	 Encoded data for curl request: tarballname=f0a1b825ee103055c90c97c8b95db1bb1583b513ad7a8ebc4c205529cbd88edd.tar.gz&subresource=upload&objecttype=sandbox
+DEBUG 2025-05-19 22:51:38.367 UTC: 	 Will execute:
+curl -f -v -X POST  -H "User-Agent: CRAB" -F "key=prdas/sandboxes/f0a1b825ee103055c90c97c8b95db1bb1583b513ad7a8ebc4c205529cbd88edd.tar.gz" -F "AWSAccessKeyId=715203df6482458ba839e73e6dab634b" -F "policy=eyJleHBpcmF0aW9uIjogIjIwMjUtMDUtMTlUMjM6NTE6MzhaIiwgImNvbmRpdGlvbnMiOiBbeyJidWNrZXQiOiAiY3JhYmNhY2hlX3Byb2QifSwgeyJrZXkiOiAicHJkYXMvc2FuZGJveGVzL2YwYTFiODI1ZWUxMDMwNTVjOTBjOTdjOGI5NWRiMWJiMTU4M2I1MTNhZDdhOGViYzRjMjA1NTI5Y2JkODhlZGQudGFyLmd6In1dfQ==" -F "signature=C1PHEO/0F0ZI3JI9+9GZ1XM05d0=" -F "file=@/afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/debugFiles.tgz" "https://s3.cern.ch/crabcache_prod"
+DEBUG 2025-05-19 22:51:39.461 UTC: 	 exitcode: 0
+stdout: 
+DEBUG 2025-05-19 22:51:39.461 UTC: 	 upload to S3 of sandbox /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/debugFiles.tgz completed
+DEBUG 2025-05-19 22:51:39.461 UTC: 	 make sure that object is ready for retrieve
+DEBUG 2025-05-19 22:51:40.462 UTC: 	 Encoded data for curl request: tarballname=f0a1b825ee103055c90c97c8b95db1bb1583b513ad7a8ebc4c205529cbd88edd.tar.gz&subresource=download&clientmethod=head_object&objecttype=sandbox
+DEBUG 2025-05-19 22:51:40.519 UTC: 	 PreSignedUrl to download sandbox received OK
+DEBUG 2025-05-19 22:51:40.527 UTC: 	 Will execute:
+ curl -v -s -f -o /dev/null --head  "https://s3.cern.ch/crabcache_prod/prdas/sandboxes/f0a1b825ee103055c90c97c8b95db1bb1583b513ad7a8ebc4c205529cbd88edd.tar.gz?AWSAccessKeyId=715203df6482458ba839e73e6dab634b&Signature=U3Mb6rKHcEskvmuUzUvCuVxTJ50%3D&Expires=1747698700"
+DEBUG 2025-05-19 22:51:40.564 UTC: 	 exitcode: 0
+stdout: 
+DEBUG 2025-05-19 22:51:40.564 UTC: 	 sandbox /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/inputs/debugFiles.tgz successfully uploaded to S3
+DEBUG 2025-05-19 22:51:40.564 UTC: 	 Result uploading input files: 7b33b51d5e4a485daf73dff2c664966a967c49841d28b1b6410e3df1a2d0cbe6.tar.gz 
+DEBUG 2025-05-19 22:51:40.564 UTC: 	 submit() - self.configuration from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.transferOutputs = True
+config.section_('JobType')
+config.JobType.psetName = 'TestPD_MC_ppRun2UL_MiniAOD.py'
+config.JobType.pluginName = 'Analysis'
+config.JobType.outputFiles = ['v0ana_mc_wJet_test.root']
+config.JobType.allowUndistributedCMSSW = True
+config.section_('Data')
+config.Data.inputDataset = '/QCD_Pt_600to800_TuneCP5_13TeV_pythia8/RunIISummer20UL18MiniAODv2-106X_upgrade2018_realistic_v16_L1v1-v1/MINIAODSIM'
+config.Data.publication = False
+config.Data.inputDBS = 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader'
+config.Data.outLFNDirBase = '/store/group/phys_heavyions/prdas/Run2_v1_mc_wjet_trees_testMC/'
+config.Data.splitting = 'Automatic'
+config.section_('User')
+config.section_('Site')
+config.Site.storageSite = 'T2_CH_CERN'
+
+DEBUG 2025-05-19 22:51:40.565 UTC: 	 submit() - self.configreq {'maxjobruntime': 1250, 'extrajdl': [], 'lfn': '/store/group/phys_heavyions/prdas/Run2_v1_mc_wjet_trees_testMC/', 'savelogsflag': 0, 'useparent': 0, 'inputblocks': [], 'asyncdest': 'T2_CH_CERN', 'algoargs': 480, 'numcores': 1, 'addoutputfiles': ['v0ana_mc_wJet_test.root'], 'generator': 'pythia', 'maxmemory': 2000, 'partialdataset': 0, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'userfiles': [], 'inputdata': '/QCD_Pt_600to800_TuneCP5_13TeV_pythia8/RunIISummer20UL18MiniAODv2-106X_upgrade2018_realistic_v16_L1v1-v1/MINIAODSIM', 'ignorelocality': 0, 'dryrun': 0, 'workflow': 'crab_20250520_005124', 'nonprodsw': 1, 'oneEventMode': 0, 'saveoutput': 1, 'publication': 0, 'totalunits': 0, 'splitalgo': 'Automatic', 'ignoreglobalblacklist': 0, 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'requireaccelerator': 0, 'jobtype': 'Analysis'}
+DEBUG 2025-05-19 22:51:40.565 UTC: 	 submit() - jobconfig {'jobminuarch': 'any', 'cacheurl': u'https://cmsweb.cern.ch/S3/crabcache_prod', 'tfileoutfiles': ['v0ana_mc_wJet_testAll.root'], 'debugfilename': 'f0a1b825ee103055c90c97c8b95db1bb1583b513ad7a8ebc4c205529cbd88edd.tar.gz', 'cachefilename': '7b33b51d5e4a485daf73dff2c664966a967c49841d28b1b6410e3df1a2d0cbe6.tar.gz', 'jobarch': 'slc7_amd64_gcc700', 'addoutputfiles': ['v0ana_mc_wJet_test.root'], 'jobsw': 'CMSSW_10_6_4_patch1', 'edmoutfiles': [], 'inputdata': '/QCD_Pt_600to800_TuneCP5_13TeV_pythia8/RunIISummer20UL18MiniAODv2-106X_upgrade2018_realistic_v16_L1v1-v1/MINIAODSIM', 'jobtype': 'Analysis'}
+INFO 2025-05-19 22:51:40.565 UTC: 	 Sending the request to the server at cmsweb.cern.ch
+DEBUG 2025-05-19 22:51:40.565 UTC: 	 Submitting {'maxjobruntime': 1250, 'jobminuarch': 'any', 'extrajdl': [], 'lfn': '/store/group/phys_heavyions/prdas/Run2_v1_mc_wjet_trees_testMC/', 'savelogsflag': 0, 'useparent': 0, 'inputblocks': [], 'asyncdest': 'T2_CH_CERN', 'algoargs': 480, 'cachefilename': '7b33b51d5e4a485daf73dff2c664966a967c49841d28b1b6410e3df1a2d0cbe6.tar.gz', 'numcores': 1, 'addoutputfiles': ['v0ana_mc_wJet_test.root'], 'generator': 'pythia', 'maxmemory': 2000, 'partialdataset': 0, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_10_6_4_patch1', 'edmoutfiles': [], 'userfiles': [], 'inputdata': '/QCD_Pt_600to800_TuneCP5_13TeV_pythia8/RunIISummer20UL18MiniAODv2-106X_upgrade2018_realistic_v16_L1v1-v1/MINIAODSIM', 'ignorelocality': 0, 'dryrun': 0, 'workflow': 'crab_20250520_005124', 'cacheurl': u'https://cmsweb.cern.ch/S3/crabcache_prod', 'nonprodsw': 1, 'tfileoutfiles': ['v0ana_mc_wJet_testAll.root'], 'oneEventMode': 0, 'debugfilename': 'f0a1b825ee103055c90c97c8b95db1bb1583b513ad7a8ebc4c205529cbd88edd.tar.gz', 'saveoutput': 1, 'publication': 0, 'jobarch': 'slc7_amd64_gcc700', 'totalunits': 0, 'splitalgo': 'Automatic', 'ignoreglobalblacklist': 0, 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'requireaccelerator': 0, 'jobtype': 'Analysis'} 
+DEBUG 2025-05-19 22:51:40.565 UTC: 	 Encoded data for curl request: maxjobruntime=1250&jobminuarch=any&lfn=%2Fstore%2Fgroup%2Fphys_heavyions%2Fprdas%2FRun2_v1_mc_wjet_trees_testMC%2F&savelogsflag=0&useparent=0&asyncdest=T2_CH_CERN&algoargs=480&cachefilename=7b33b51d5e4a485daf73dff2c664966a967c49841d28b1b6410e3df1a2d0cbe6.tar.gz&numcores=1&generator=pythia&maxmemory=2000&partialdataset=0&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_10_6_4_patch1&inputdata=%2FQCD_Pt_600to800_TuneCP5_13TeV_pythia8%2FRunIISummer20UL18MiniAODv2-106X_upgrade2018_realistic_v16_L1v1-v1%2FMINIAODSIM&ignorelocality=0&dryrun=0&workflow=crab_20250520_005124&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2FS3%2Fcrabcache_prod&nonprodsw=1&oneEventMode=0&debugfilename=f0a1b825ee103055c90c97c8b95db1bb1583b513ad7a8ebc4c205529cbd88edd.tar.gz&saveoutput=1&publication=0&jobarch=slc7_amd64_gcc700&totalunits=0&splitalgo=Automatic&ignoreglobalblacklist=0&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&requireaccelerator=0&jobtype=Analysis&addoutputfiles=v0ana_mc_wJet_test.root&tfileoutfiles=v0ana_mc_wJet_testAll.root
+DEBUG 2025-05-19 22:51:41.159 UTC: 	 Result: {u'result': [{u'RequestName': u'250519_225140:prdas_crab_20250520_005124'}]}
+INFO 2025-05-19 22:51:41.163 UTC: 	 Success: Your task has been delivered to the prod CRAB3 server.
+INFO 2025-05-19 22:51:41.164 UTC: 	 Task name: 250519_225140:prdas_crab_20250520_005124
+INFO 2025-05-19 22:51:41.164 UTC: 	 Project dir: ./crab_20250520_005124
+INFO 2025-05-19 22:51:41.164 UTC: 	 Please use ' crab status -d ./crab_20250520_005124 ' to check how the submission process proceeds.
+DEBUG 2025-05-19 22:51:41.164 UTC: 	 About to return
+INFO 2025-05-19 22:51:41.167 UTC: 	 Log file is /afs/cern.ch/work/p/prdas/private/ModifyV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/crab_20250520_005124/crab.log
