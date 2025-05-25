@@ -124,7 +124,8 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
         hjetN->Fill(jetN);
         for(Int_t j = 0; j < jetPt->size(); j++){
             if(jetPt->at(j) < 550)continue;
-            if(abs(jetEta->at(j)) > (2.4-JetR))continue;      
+            //if(abs(jetEta->at(j)) > (2.4-JetR))continue;
+	    if(abs(jetEta->at(j)) > (TrkEtaBound-JetR))continue;      
             hjetEta->Fill(jetEta->at(j));
             hjetPt->Fill(jetPt->at(j));
             hjetPhi->Fill(jetPhi->at(j));
@@ -196,6 +197,7 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
               h1DelR_RG_matched_woJ->Fill(dR(cand_etaL->at(refIndR),cand_phiL->at(refIndR),gen_etaL->at(refIndG),gen_phiL->at(refIndG)));  
               h1FracPt_RG_matched_woJ->Fill(((cand_pTL->at(refIndR))-(gen_pTL->at(refIndG)))/(gen_pTL->at(refIndG)));
               h1Pt_GM_woJ -> Fill(gen_pTL->at(refIndG));//pT dist of matched gen cand irrespective of existing jet
+	      h2PtEta_GM_woJ -> Fill(gen_pTL->at(refIndG),gen_etaL->at(refIndG));
             }
             
           }
@@ -206,6 +208,7 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
 	          if(gen_pdgIdL->at(icand_gen) != cand_ID[iCand])continue;
             if(!IsSatisfyKineCuts(gen_pTL->at(icand_gen),gen_etaL->at(icand_gen)))continue;
 	          h1Pt_GA -> Fill(gen_pTL->at(icand_gen));//pT dist of gen cand irrespective of existing jet
+		  h2PtEta_GA -> Fill(gen_pTL->at(icand_gen),gen_etaL->at(icand_gen));
 	          h1Mass_GA -> Fill(gen_massL->at(icand_gen));
 	          h1Ncand_GA->Fill(1.0);
 	        }
@@ -266,7 +269,8 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
 	            for(Int_t j2 = 0; j2 < jetPt->size(); j2++){//loop over reco jets starting with leading pT jet
                 if(skipJet)break; //if a jet with matched cand found, then break
 	              if(jetPt->at(j2) < 550)continue; // selecting jet with pT > 550 GeV
-	              if(abs(jetEta->at(j2)) > (2.4-JetR))continue; // selecting jet with the eta acceptance < |2.4-JetR|
+	              //if(abs(jetEta->at(j2)) > (2.4-JetR))continue; // selecting jet with the eta acceptance < |2.4-JetR|
+		      if(abs(jetEta->at(j2)) > (TrkEtaBound-JetR))continue; // selecting jet with the eta acceptance < |2.4-JetR|
 
                 Double_t DelRV0Jet = dR(jetEta->at(j2),jetPhi->at(j2),cand_etaL->at(j),cand_phiL->at(j));
                 if(DelRV0Jet <= JetR){// candidate within the jet cone
@@ -305,7 +309,8 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
 	              for(Int_t j2 = 0; j2 < genJetPt->size(); j2++){
                   if(skipGenJet)break;
 	                if(genJetPt->at(j2) < 550)continue; // selecting jet with pT > 550 GeV
-	                if(abs(genJetEta->at(j2)) > (2.4-JetR))continue; // selecting jet with the eta acceptance < |2.4-JetR|
+	                //if(abs(genJetEta->at(j2)) > (2.4-JetR))continue; // selecting jet with the eta acceptance < |2.4-JetR|
+			if(abs(genJetEta->at(j2)) > (TrkEtaBound-JetR))continue; // selecting jet with the eta acceptance < |1.3-JetR|
 	                Double_t DelRV0Jet_G = dR(genJetEta->at(j2),genJetPhi->at(j2),gen_etaL->at(refIndG),gen_phiL->at(refIndG));
 
           	      //hDelR_GM_in_wGJ->Fill(DelRV0Jet_G);
@@ -342,10 +347,12 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
         if(genJetPt->size() > 0 && jetPt->size() > 0){
 	        for(Int_t jRec = 0; jRec < jetPt->size(); jRec++){
        	    if(jetPt->at(jRec) < 550)continue;	    
-            if(abs(jetEta->at(jRec)) > (2.4-JetR))continue;
+            //if(abs(jetEta->at(jRec)) > (2.4-JetR))continue;
+	    if(abs(jetEta->at(jRec)) > (TrkEtaBound-JetR))continue;
 	          
             for(Int_t j2 = 0; j2 < genJetPt->size(); j2++){
-	            if(abs(genJetEta->at(j2)) > (2.4-JetR))continue;
+	      //if(abs(genJetEta->at(j2)) > (2.4-JetR))continue;
+	      if(abs(genJetEta->at(j2)) > (TrkEtaBound-JetR))continue;
 
         	    Double_t DelR_Jet_RG = dR(genJetEta->at(j2),genJetPhi->at(j2),jetEta->at(jRec),jetPhi->at(jRec));
         	    Double_t DelPhi_Jet_RG = dPhi(genJetPhi->at(j2),jetPhi->at(jRec));
@@ -360,7 +367,7 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
         	    h1RJetEta->Fill(jetEta->at(jRec));
 	            h1RJetPhi->Fill(jetPhi->at(jRec));
 	    
-        	    //if(abs(jetEta->at(jRec)) > (2.4-JetR))continue;
+        	    //if(abs(jetEta->at(jRec)) > (TrkEtaBound-JetR))continue;
 	            h2GJetPtDelR->Fill(DelR_Jet_RG,genJetPt->at(j2));
 	          }
 	        }
@@ -377,7 +384,8 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
 	          for(Int_t j2 = 0; j2 < genJetPt->size(); j2++){
 	            if(skipGenJet)break;
 	            if(genJetPt->at(j2) < 550)continue; // selecting jet with pT > 550 GeV
-	            if(abs(genJetEta->at(j2)) > (2.4-JetR))continue; // selecting jet with the eta acceptance < |2.4-JetR|
+	            //if(abs(genJetEta->at(j2)) > (2.4-JetR))continue; // selecting jet with the eta acceptance < |2.4-JetR|
+		    if(abs(genJetEta->at(j2)) > (TrkEtaBound-JetR))continue; // selecting jet with the eta acceptance < |2.4-JetR|
 	    
 	            Double_t DelRV0Jet = dR(genJetEta->at(j2),genJetPhi->at(j2),gen_etaL->at(jG),gen_phiL->at(jG));
 	            if(DelRV0Jet <= JetR){// candidate within the jet cone
@@ -402,7 +410,7 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
     CandTree.ResetBranchAddresses();
 
     if(IsSave){
-    TFile *fO = new TFile(Form("%s.root",OutputFileName.Data()),"RECREATE");
+      TFile *fO = new TFile(Form("%s_%s.root",OutputFileName.Data(),cand_tree[iCand].Data()),"RECREATE");
        
     hzVtxL->Write("bestVtxZL");
     hLMass->Write("InvMassL");
@@ -479,7 +487,8 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
 
     hPtL_GA_in_wcand->Write();
     hMassL_GA_in->Write();
-    
+
+    h2PtEta_GM_woJ->Write();
     h1Pt_GM_woJ->Write();
     hPtL_GM_in->Write();
     hPtL_GM_in_wGJ->Write();
@@ -510,6 +519,7 @@ void CalcEff(Int_t nIpDir = 0, Int_t iCand = 0, Bool_t IsSave = kFALSE){
     h1GJetPhi->Write();
 
     h1Pt_RA->Write();
+    h2PtEta_GA->Write();
     h1Pt_GA->Write();
     h1Mass_RA->Write();
     h1Mass_GA->Write();
@@ -584,6 +594,6 @@ Double_t dPhi(Double_t RefPhi, Double_t MPhi){
 }
 
 Bool_t IsSatisfyKineCuts(Double_t RefPt, Double_t RefEta){
-  if(RefPt < 1.0 || TMath::Abs(RefEta) > 2.4)return kFALSE;
+  if(RefPt < 1.0 || TMath::Abs(RefEta) > TrkEtaBound)return kFALSE;
   return kTRUE;
 }

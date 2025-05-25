@@ -151,7 +151,32 @@ void ParticleFitter::setVertex(const edm::Event& iEvent)
   }
   // set the primary vertex
   const auto beamSpotVertex = reco::Vertex(beamSpotHandle->position(), beamSpotHandle->rotatedCovariance3D());
-  vertex_ = (priVertices_.empty() ? beamSpotVertex : priVertices_[0]);
+
+  //vertex_ = (priVertices_.empty() ? beamSpotVertex : priVertices_[0]); // commented by PD
+  
+  auto sumPt2 = [] (const reco::Vertex& vtxSel) -> float {
+    float pt2sum = 0.0;
+    for (auto it = vtxSel.tracks_begin(); it != vtxSel.tracks_end(); ++it) {
+      const reco::TrackBaseRef& trackRef = *it;
+      if (trackRef.isNonnull()) {
+	pt2sum += trackRef->pt() * trackRef->pt();
+      }
+    }
+    return pt2sum;
+  };
+  
+  const reco::Vertex* bestVtx = nullptr;
+  float maxPt2 = -1.0;
+  for (const auto& vtxSel : priVertices_) {
+    float pt2 = sumPt2(vtxSel);
+    if (pt2 > maxPt2) {
+      maxPt2 = pt2;
+      bestVtx = &vtxSel;
+    }
+  }
+  
+  vertex_ = (bestVtx ? *bestVtx : beamSpotVertex);
+  
   // set the beam spot
   beamSpot_ = *beamSpotHandle;
   // set the 2D beam spot

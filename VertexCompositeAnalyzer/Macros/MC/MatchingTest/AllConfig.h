@@ -9,7 +9,7 @@ TString inputDirData[] = {"Run2_v0_mc_wjet_trees_2/QCD_Pt_470to600_TuneCP5_13TeV
 //TString inputDirDataParent = "/afs/cern.ch/work/p/prdas/";
 //TString inputDirData[] = {"private/TestV0Reco/CMSSW_10_6_4_patch1/src/VertexCompositeAnalysis/VertexCompositeProducer/test/OutRootFiles/"};
 
-TString OutputFileName = "Output_V0InJets_Matching_470to600";
+TString OutputFileName = "Output_V0InJets_Matching_470to600_kshort";
 //TString OutputTreeFileName = "TMVA_sig_test_new_v7_470to600_s3";
 
 Int_t CandNo[] = {0,1,2,3,4,5,6};
@@ -18,6 +18,7 @@ TString cand_tree_ana[] = {"lambdaana","antilambdaana","kshortana","xiana","anti
 Int_t cand_ID[] = {3122,3122,310,3312,3312,3334,3334};
 
 Double_t JetR = 0.8;
+Double_t TrkEtaBound = 2.4;
 //Int_t LambdaId = 3122;
 //Int_t KshortId = 310;
 //Double_t MinLambdaRecoMass = 1.;
@@ -165,12 +166,14 @@ TH2F *h2PtL_GA_in =  new TH2F("h2PtL_GA_in","h2PtL_GA_in",500,-0.5,499.5,1500,0.
 
 TH1F *hPtL_GM_in =  new TH1F("hPtL_GM_in","hPtL_GM_in",1500,0.,1500.);
 
+TH2F *h2PtEta_GA =  new TH2F("h2PtEta_GA","h2PtEta_GA",1500,0.,1500.,1000,-10.,10.);
 TH1F *h1Pt_GA =  new TH1F("h1Pt_GA","h1Pt_GA",1500,0.,1500.);
 TH1F *h1Pt_RA =  new TH1F("h1Pt_RA","h1Pt_RA",1500,0.,1500.);
 TH1F *h1Mass_GA =  new TH1F("h1Mass_GA","h1Mass_GA",2800,0.,1.4);
 TH1F *h1Mass_RA =  new TH1F("h1Mass_RA","h1Mass_RA",2800,0.,1.4);
 
 TH1F *h1Pt_GM_woJ =  new TH1F("h1Pt_GM_woJ","h1Pt_GM_woJ",1500,0.,1500.);
+TH2F *h2PtEta_GM_woJ =  new TH2F("h2PtEta_GM_woJ","h2PtEta_GM_woJ",1500,0.,1500.,1000,-10.,10.);
 
 TH1F *hMassL_GM_in =  new TH1F("hMassL_GM_in","hMassL_GM_in",2800,0.,1.4);
 TH1F *hDelR_GM_in_wGJ = new TH1F("hDelR_GM_in_wGJ","hDelR_GM_in_wGJ",1100,-1.,10.);
