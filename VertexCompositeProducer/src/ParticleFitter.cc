@@ -132,6 +132,63 @@ void ParticleFitter::setVertex(const edm::Event& iEvent)
   // extract the input collections
   edm::Handle<reco::VertexCollection> vertexHandle;
   edm::Handle<reco::BeamSpot> beamSpotHandle;
+  edm::Handle<reco::TrackCollection> trackHandle;
+  iEvent.getByToken(token_vertices_, vertexHandle);
+  iEvent.getByToken(token_beamSpot_, beamSpotHandle);
+  iEvent.getByToken(token_tracks_, trackHandle);
+  // initialize containers
+  priVertices_.reserve(vertexHandle->size());
+
+  // Variables to keep track of best vertex by summed pT^2
+  double maxSumPt2 = -1.0;
+  size_t bestVertexIndex = 0;
+  
+  // Loop over vertices to find the one with max summed pT^2
+  for (size_t iVtx = 0; iVtx < vertexHandle->size(); ++iVtx) {
+    const auto& pv = vertexHandle->at(iVtx);
+    if (!pv.isFake() && pv.tracksSize() >= 2) {
+      // Sum pT^2 of tracks associated with this vertex
+      double sumPt2 = 0.0;
+      
+      // Loop over tracks in the vertex
+      for (auto it = pv.tracks_begin(); it != pv.tracks_end(); ++it) {
+        reco::TrackBaseRef trackRef = *it;
+        double pt = trackRef->pt();
+        sumPt2 += pt * pt;
+      }
+
+      priVertices_.push_back(pv);
+      const auto& tp = std::make_tuple(pv.x(), pv.y(), pv.z(), pv.tracksSize(), true);
+      vertexRefMap_[tp] = reco::VertexRef(vertexHandle, iVtx);
+      
+      // Check if this vertex has the max summed pT^2 so far
+      if (sumPt2 > maxSumPt2) {
+        maxSumPt2 = sumPt2;
+        bestVertexIndex = priVertices_.size() - 1;  // index in priVertices_
+      }
+    }
+  }
+  // Set the primary vertex to the one with max summed pT^2 (or beam spot if none)
+  const auto beamSpotVertex = reco::Vertex(beamSpotHandle->position(), beamSpotHandle->rotatedCovariance3D());
+
+  vertex_ = (priVertices_.empty() ? beamSpotVertex : priVertices_[bestVertexIndex]);
+
+  // set the beam spot
+  beamSpot_ = *beamSpotHandle;
+  // set the 2D beam spot
+  const auto beamSpot2DValue = reco::Vertex::Point(beamSpotHandle->x0(), beamSpotHandle->y0(), 0.);
+  reco::Vertex::Error beamSpot2DError;
+  beamSpot2DError(0,0) = std::pow(beamSpotHandle->BeamWidthX(), 2.);
+  beamSpot2DError(1,1) = std::pow(beamSpotHandle->BeamWidthY(), 2.);
+  beamSpot2D_ = reco::Vertex(beamSpot2DValue, beamSpot2DError);
+};
+
+/*  // commented by PD
+void ParticleFitter::setVertex(const edm::Event& iEvent)
+{
+  // extract the input collections
+  edm::Handle<reco::VertexCollection> vertexHandle;
+  edm::Handle<reco::BeamSpot> beamSpotHandle;
   iEvent.getByToken(token_vertices_, vertexHandle);
   iEvent.getByToken(token_beamSpot_, beamSpotHandle);
   // initialize containers
@@ -152,30 +209,7 @@ void ParticleFitter::setVertex(const edm::Event& iEvent)
   // set the primary vertex
   const auto beamSpotVertex = reco::Vertex(beamSpotHandle->position(), beamSpotHandle->rotatedCovariance3D());
 
-  //vertex_ = (priVertices_.empty() ? beamSpotVertex : priVertices_[0]); // commented by PD
-  
-  auto sumPt2 = [] (const reco::Vertex& vtxSel) -> float {
-    float pt2sum = 0.0;
-    for (auto it = vtxSel.tracks_begin(); it != vtxSel.tracks_end(); ++it) {
-      const reco::TrackBaseRef& trackRef = *it;
-      if (trackRef.isNonnull()) {
-	pt2sum += trackRef->pt() * trackRef->pt();
-      }
-    }
-    return pt2sum;
-  };
-  
-  const reco::Vertex* bestVtx = nullptr;
-  float maxPt2 = -1.0;
-  for (const auto& vtxSel : priVertices_) {
-    float pt2 = sumPt2(vtxSel);
-    if (pt2 > maxPt2) {
-      maxPt2 = pt2;
-      bestVtx = &vtxSel;
-    }
-  }
-  
-  vertex_ = (bestVtx ? *bestVtx : beamSpotVertex);
+  vertex_ = (priVertices_.empty() ? beamSpotVertex : priVertices_[0]);
   
   // set the beam spot
   beamSpot_ = *beamSpotHandle;
@@ -186,7 +220,7 @@ void ParticleFitter::setVertex(const edm::Event& iEvent)
   beamSpot2DError(1,1) = std::pow(beamSpotHandle->BeamWidthY(), 2.);
   beamSpot2D_ = reco::Vertex(beamSpot2DValue, beamSpot2DError);
 };
-
+*/
 
 void ParticleFitter::addParticles(ParticleDaughter& d, const edm::Event& iEvent)
 {

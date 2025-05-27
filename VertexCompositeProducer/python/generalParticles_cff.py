@@ -30,7 +30,7 @@ generalLambdaCandidatesNew = generalParticles.clone(
     daughterInfo = cms.VPSet([
         cms.PSet(pdgId = cms.int32(211), charge = cms.int32(-1),
            selection = cms.string(
-              "pt>0.0 && abs(eta)<2.4"
+              "pt>0.3 && abs(eta)<2.4"
               "&& quality('loose')"
               ),
            finalSelection = cms.string(''
@@ -39,7 +39,7 @@ generalLambdaCandidatesNew = generalParticles.clone(
            ),
         cms.PSet(pdgId = cms.int32(2212), charge = cms.int32(+1),
            selection = cms.string(
-              "pt>0.0 && abs(eta)<2.4"
+              "pt>0.3 && abs(eta)<2.4"
               "&& quality('loose')"
               ),
            finalSelection = cms.string(''
@@ -55,7 +55,7 @@ generalAntiLambdaCandidatesNew = generalLambdaCandidatesNew.clone(
     daughterInfo = cms.VPSet([
         cms.PSet(pdgId = cms.int32(211), charge = cms.int32(+1),
            selection = cms.string(
-              "pt>0.0 && abs(eta)<2.4"
+              "pt>0.3 && abs(eta)<2.4"
               "&& quality('loose')"
               ),
            finalSelection = cms.string(''
@@ -64,7 +64,7 @@ generalAntiLambdaCandidatesNew = generalLambdaCandidatesNew.clone(
            ),
         cms.PSet(pdgId = cms.int32(2212), charge = cms.int32(-1),
            selection = cms.string(
-              "pt>0.0 && abs(eta)<2.4"
+              "pt>0.3 && abs(eta)<2.4"
               "&& quality('loose')"
               ),
            finalSelection = cms.string(''
@@ -102,7 +102,7 @@ generalKshortCandidatesNew = generalParticles.clone(
     daughterInfo = cms.VPSet([
         cms.PSet(pdgId = cms.int32(211), charge = cms.int32(-1),
            selection = cms.string(
-              "pt>0.0 && abs(eta)<2.4"
+              "pt>0.3 && abs(eta)<2.4"
               "&& quality('loose')"
               ),
            finalSelection = cms.string(''
@@ -112,7 +112,7 @@ generalKshortCandidatesNew = generalParticles.clone(
            ),
         cms.PSet(pdgId = cms.int32(211), charge = cms.int32(+1),
            selection = cms.string(
-              "pt>0.0 && abs(eta)<2.4"
+              "pt>0.3 && abs(eta)<2.4"
               "&& quality('loose')"
               ),
            finalSelection = cms.string(''
